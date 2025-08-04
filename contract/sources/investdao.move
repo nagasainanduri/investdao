@@ -4,6 +4,9 @@ module dao_addr::InvestmentDAO {
     use std::string;
     use std::event;
 
+    //constant centralized dao address (must be the developer or dedicated dao account)
+    const DAO_ADDR: address = @0x1;
+
     //minimum number of votes to finalize a prop
     const MIN_VOTES: u64 = 10;
 
@@ -34,6 +37,8 @@ module dao_addr::InvestmentDAO {
 
     //initialize contract
     public entry fun init(account: &signer) {
+        //let sender_addr = signer::address_of(account);
+        //assert!(sender_addr == DAO_ADDR, 1001);
         move_to(account, ProposalStore {
             proposals: table::new<u64, Proposal>(),
             props_count: 0,
@@ -42,8 +47,8 @@ module dao_addr::InvestmentDAO {
 
     //create a new proposal
     public entry fun create_proposal(account: &signer, title: string::String, description: string::String) acquires ProposalStore {
-        let sender_addr = signer::address_of(account);
-        let store = borrow_global_mut<ProposalStore>(sender_addr);
+        let store = borrow_global_mut<ProposalStore>(DAO_ADDR);
+        let proposer_addr = signer::address_of(account);
         let proposal_id = store.props_count;
         let voters_tbl = table::new<address, bool>();
         let proposal = Proposal {
@@ -52,7 +57,7 @@ module dao_addr::InvestmentDAO {
             description,
             yes: 0,
             no: 0,
-            proposer: sender_addr,
+            proposer: proposer_addr,
             status: 0, // Open 1=>close
             voters: voters_tbl,
         };
@@ -62,8 +67,8 @@ module dao_addr::InvestmentDAO {
 
     // voting on open proposal
     public entry fun vote_on_props(account: &signer, prop_id: u64, vote: bool) acquires ProposalStore {
-        let sender_addr = signer::address_of(account);
-        let store = borrow_global_mut<ProposalStore>(sender_addr);
+        let voter_addr = signer::address_of(account);
+        let store = borrow_global_mut<ProposalStore>(DAO_ADDR);
 
         //borrow proposal - mutable
         let proposal = table::borrow_mut(&mut store.proposals, prop_id);
@@ -72,11 +77,11 @@ module dao_addr::InvestmentDAO {
         assert!(proposal.status == 0, 1); //Error code 1 = proposal not open
 
         //prevent double voting
-        let has_voted = table::contains(&proposal.voters, sender_addr);
+        let has_voted = table::contains(&proposal.voters, voter_addr);
         assert!(!has_voted, 2); // Error code 2 = Aleady voted
 
         //REcord vote
-        table::add(&mut proposal.voters, sender_addr, true);
+        table::add(&mut proposal.voters, voter_addr, true);
 
         //increment
         if (vote) {
@@ -87,9 +92,8 @@ module dao_addr::InvestmentDAO {
     }
 
     //finalize proposals
-    public entry fun finalize_props(account: &signer, props_id: u64) acquires ProposalStore {
-        let sender_addr = signer::address_of(account);
-        let store = borrow_global_mut<ProposalStore>(sender_addr);
+    public entry fun finalize_props(_account: &signer, props_id: u64) acquires ProposalStore {
+        let store = borrow_global_mut<ProposalStore>(DAO_ADDR);
 
         let proposal = table::borrow_mut(&mut store.proposals, props_id);
 

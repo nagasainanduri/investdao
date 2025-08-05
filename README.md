@@ -205,12 +205,6 @@ We welcome contributions from the community! Here's how you can help:
 - Help with documentation and tutorials
 - Review and test pull requests
 
-### Community
-- Participate in governance discussions
-- Help new members get started
-- Share feedback and suggestions
-- Spread the word about InvestmentDAO
-
 ### Getting Involved
 1. Fork the repository
 2. Create a feature branch
@@ -218,13 +212,13 @@ We welcome contributions from the community! Here's how you can help:
 4. Submit a pull request
 5. Join our Discord community
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## Contract Details
 
 ![InvestmentDAO](transaction.png)
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 **Built with ❤️ by the InvestmentDAO Community**
 

@@ -1,10 +1,10 @@
 [package]
-name = "contract"
+name = "InvestmentDAO"
 version = "1.0.0"
-authors = []
+authors = ["Neil"]
 
 [addresses]
-dao_addr="bdffa7eedb36f54c05ee1540b79c606fe5d75f8bbcecf6844a1502a2b1f9cea6"
+dao_addr="0x1586f709246c304da42ba5c8d0679061d6cf28c348344ef0a36f23a96da76903"
 
 [dev-addresses]
 

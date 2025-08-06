@@ -1,4 +1,4 @@
-module dao_addr::InvestmentDAO {
+module dao_addr::InvestDAO{
     use std::signer;
     use std::table;
     use std::string;

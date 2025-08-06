@@ -1,6 +1,6 @@
 [package]
-name = "InvestmentDAO"
-version = "1.0.0"
+name = "InvestDAO"
+version = "1.0.1"
 authors = ["Neil"]
 
 [addresses]

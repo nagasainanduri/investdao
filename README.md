@@ -77,8 +77,7 @@ Our vision is to create a transparent, inclusive, and efficient investment ecosy
 ### **Smart Contract Structure**
 ```
 InvestmentDAO/
-├── SimpleInvestmentDAO.move     # Core DAO functionality
-├── InvestmentDAOV2.move         # Advanced features version
+├── InvestmentDAO.move     # Core DAO functionality
 └── tests/                       # Comprehensive test suite
 ```
 
@@ -165,19 +164,19 @@ execute_proposal(account, dao_address, 0);
 
 ## 🔮 Future Scope
 
-### Phase 1: Enhanced Features (Q2 2024)
+### Phase 1: Enhanced Features (Q2 2025)
 - **Multi-Token Support**: Support for various cryptocurrencies beyond APT
 - **Proposal Categories**: Different types of investments (DeFi, NFTs, Startups)
 - **Advanced Analytics**: Detailed ROI tracking and investment performance metrics
 - **Mobile Application**: User-friendly mobile interface for DAO participation
 
-### Phase 2: Advanced Governance (Q3 2024)
+### Phase 2: Advanced Governance (Q3 2025)
 - **Delegated Voting**: Allow members to delegate their voting power
 - **Proposal Templates**: Pre-built templates for common investment types
 - **Risk Assessment Tools**: Automated risk scoring for proposals
 - **Integration APIs**: Connect with external investment platforms
 
-### Phase 3: Ecosystem Expansion (Q4 2024)
+### Phase 3: Ecosystem Expansion (Q4 2025)
 - **Cross-Chain Compatibility**: Support for other blockchains (Ethereum, Solana)
 - **Legal Framework Integration**: Compliance tools for different jurisdictions
 - **Institutional Features**: Enterprise-grade features for large organizations

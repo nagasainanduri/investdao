@@ -210,7 +210,6 @@ We welcome contributions from the community! Here's how you can help:
 2. Create a feature branch
 3. Make your changes
 4. Submit a pull request
-5. Join our Discord community
 
 ## Contract Details
 
